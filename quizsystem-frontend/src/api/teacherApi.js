@@ -1,44 +1,3 @@
-// import axiosInstance from "./axios";
-
-// /*
-// |--------------------------------------------------------------------------
-// | Quiz APIs
-// |--------------------------------------------------------------------------
-// */
-
-// // GET /api/teacher/quizzes
-// export const getMyQuizzes = async () => {
-//   const { data } = await axiosInstance.get("/teacher/quizzes");
-//   return data.data;
-// };
-
-// export const getQuizById = async (id) => {
-//   const { data } = await axiosInstance.get(`/teacher/quizzes/${id}`);
-//   return data.data;
-// };
-
-// export const createQuiz = async (payload) => {
-//   const { data } = await axiosInstance.post("/teacher/quizzes", payload);
-//   return data.data;
-// };
-
-// export const updateQuiz = async (id, payload) => {
-//   const { data } = await axiosInstance.put(`/teacher/quizzes/${id}`, payload);
-//   return data.data;
-// };
-
-// export const deleteQuiz = async (id) => {
-//   const { data } = await axiosInstance.delete(`/teacher/quizzes/${id}`);
-//   return data;
-// };
-
-// export const updateQuizStatus = async (id, status) => {
-//   const { data } = await axiosInstance.patch(
-//     `/teacher/quizzes/${id}/status`,
-//     { status }
-//   );
-//   return data.data;
-// };
 import axiosInstance from "./axios";
 
 /*
@@ -61,39 +20,30 @@ export const getQuizById = async (id) => {
 
 // POST /api/teacher/quizzes
 export const createQuiz = async (payload) => {
-  const { data } = await axiosInstance.post(
-    "/teacher/quizzes",
-    payload
-  );
+  const { data } = await axiosInstance.post("/teacher/quizzes", payload);
 
   return data.data;
 };
 
 // PUT /api/teacher/quizzes/{id}
 export const updateQuiz = async (id, payload) => {
-  const { data } = await axiosInstance.put(
-    `/teacher/quizzes/${id}`,
-    payload
-  );
+  const { data } = await axiosInstance.put(`/teacher/quizzes/${id}`, payload);
 
   return data.data;
 };
 
 // DELETE /api/teacher/quizzes/{id}
 export const deleteQuiz = async (id) => {
-  const { data } = await axiosInstance.delete(
-    `/teacher/quizzes/${id}`
-  );
+  const { data } = await axiosInstance.delete(`/teacher/quizzes/${id}`);
 
   return data;
 };
 
 // PATCH /api/teacher/quizzes/{id}/status
 export const updateQuizStatus = async (id, status) => {
-  const { data } = await axiosInstance.patch(
-    `/teacher/quizzes/${id}/status`,
-    { status }
-  );
+  const { data } = await axiosInstance.patch(`/teacher/quizzes/${id}/status`, {
+    status,
+  });
 
   return data.data;
 };
@@ -107,7 +57,7 @@ export const updateQuizStatus = async (id, status) => {
 // GET /api/teacher/quizzes/{quizId}/questions
 export const getQuestionsByQuiz = async (quizId) => {
   const { data } = await axiosInstance.get(
-    `/teacher/quizzes/${quizId}/questions`
+    `/teacher/quizzes/${quizId}/questions`,
   );
 
   return data.data;
@@ -115,9 +65,7 @@ export const getQuestionsByQuiz = async (quizId) => {
 
 // GET /api/teacher/questions/{questionId}
 export const getQuestionById = async (questionId) => {
-  const { data } = await axiosInstance.get(
-    `/teacher/questions/${questionId}`
-  );
+  const { data } = await axiosInstance.get(`/teacher/questions/${questionId}`);
 
   return data.data;
 };
@@ -126,7 +74,7 @@ export const getQuestionById = async (questionId) => {
 export const createQuestion = async (quizId, payload) => {
   const { data } = await axiosInstance.post(
     `/teacher/quizzes/${quizId}/questions`,
-    payload
+    payload,
   );
 
   return data.data;
@@ -136,7 +84,7 @@ export const createQuestion = async (quizId, payload) => {
 export const updateQuestion = async (questionId, payload) => {
   const { data } = await axiosInstance.put(
     `/teacher/questions/${questionId}`,
-    payload
+    payload,
   );
 
   return data.data;
@@ -145,7 +93,7 @@ export const updateQuestion = async (questionId, payload) => {
 // DELETE /api/teacher/questions/{questionId}
 export const deleteQuestion = async (questionId) => {
   const { data } = await axiosInstance.delete(
-    `/teacher/questions/${questionId}`
+    `/teacher/questions/${questionId}`,
   );
 
   return data;
@@ -160,7 +108,7 @@ export const deleteQuestion = async (questionId) => {
 // GET /teacher/questions/{questionId}/options
 export const getOptions = async (questionId) => {
   const { data } = await axiosInstance.get(
-    `/teacher/questions/${questionId}/options`
+    `/teacher/questions/${questionId}/options`,
   );
 
   return data.data;
@@ -168,34 +116,26 @@ export const getOptions = async (questionId) => {
 
 // GET /teacher/options/{optionId}
 export const getOptionById = async (optionId) => {
-  const { data } = await axiosInstance.get(
-    `/teacher/options/${optionId}`
-  );
+  const { data } = await axiosInstance.get(`/teacher/options/${optionId}`);
 
   return data.data;
 };
 
 // POST /teacher/questions/{questionId}/options
-export const createOption = async ({
-  questionId,
-  data: payload,
-}) => {
+export const createOption = async ({ questionId, data: payload }) => {
   const { data } = await axiosInstance.post(
     `/teacher/questions/${questionId}/options`,
-    payload
+    payload,
   );
 
   return data.data;
 };
 
 // PUT /teacher/options/{optionId}
-export const updateOption = async ({
-  optionId,
-  data: payload,
-}) => {
+export const updateOption = async ({ optionId, data: payload }) => {
   const { data } = await axiosInstance.put(
     `/teacher/options/${optionId}`,
-    payload
+    payload,
   );
 
   return data.data;
@@ -203,9 +143,7 @@ export const updateOption = async ({
 
 // DELETE /teacher/options/{optionId}
 export const deleteOption = async (optionId) => {
-  const { data } = await axiosInstance.delete(
-    `/teacher/options/${optionId}`
-  );
+  const { data } = await axiosInstance.delete(`/teacher/options/${optionId}`);
 
   return data;
 };
