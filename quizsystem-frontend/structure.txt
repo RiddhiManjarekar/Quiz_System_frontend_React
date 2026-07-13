@@ -1,0 +1,78 @@
+quiz-system-frontend/
+│
+├── public/
+│
+├── src/
+│
+├── api/
+│      axios.js
+│      authApi.js
+│      adminApi.js
+│      teacherApi.js
+│      studentApi.js
+│
+├── assets/
+│
+├── components/
+│      common/
+│      ui/
+│      layout/
+│      forms/
+│
+├── pages/
+│
+│      auth/
+│            Login.jsx
+│            Register.jsx
+│
+│      admin/
+│            Dashboard.jsx
+│            Students.jsx
+│            Teachers.jsx
+│            Quizzes.jsx
+│
+│      teacher/
+│            Dashboard.jsx
+│            QuizList.jsx
+│            CreateQuiz.jsx
+│            EditQuiz.jsx
+│            Questions.jsx
+│            Options.jsx
+│            Evaluation.jsx
+│
+│      student/
+│            Dashboard.jsx
+│            AvailableQuizzes.jsx
+│            QuizPage.jsx
+│            Result.jsx
+│
+├── layouts/
+│      AdminLayout.jsx
+│      TeacherLayout.jsx
+│      StudentLayout.jsx
+│      AuthLayout.jsx
+│
+├── routes/
+│      AppRoutes.jsx
+│      ProtectedRoute.jsx
+│
+├── store/
+│      authStore.js
+│      uiStore.js
+│
+├── hooks/
+│      useAuth.js
+│      useQuiz.js
+│
+├── utils/
+│      constants.js
+│      helpers.js
+│
+├── context/
+│      (optional)
+│
+├── styles/
+│
+├── App.jsx
+│
+└── main.jsx
