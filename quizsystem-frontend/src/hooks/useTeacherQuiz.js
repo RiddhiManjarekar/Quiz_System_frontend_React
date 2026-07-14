@@ -32,33 +32,7 @@ export const useQuiz = (id) =>
     enabled: !!id,
   });
 
-// export const useMyQuizzes = () => {
-//   return useQuery({
-//     queryKey: ["teacher-quizzes"],
-//     queryFn: async () => {
-//       const response = await getMyQuizzes();
-//       return response.data.data;
-//     },
-//   });
-// };
 
-// /*
-// |--------------------------------------------------------------------------
-// | Get Quiz By Id
-// |--------------------------------------------------------------------------
-// */
-
-
-// export const useQuiz = (id) => {
-//   return useQuery({
-//     queryKey: ["quiz", id],
-//     queryFn: async () => {
-//       const response = await getQuizById(id);
-//       return response.data.data;
-//     },
-//     enabled: !!id,
-//   });
-// };
 
 /*
 |--------------------------------------------------------------------------

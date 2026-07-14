@@ -34,10 +34,12 @@ import EditOption from "../pages/teacher/EditOption";
 
 // import Evaluation from "../pages/teacher/Evaluation";
 
-// import StudentDashboard from "../pages/student/Dashboard";
-// import AvailableQuizzes from "../pages/student/AvailableQuizzes";
-// import QuizPage from "../pages/student/QuizPage";
-// import Result from "../pages/student/Result";
+import StudentDashboard from "../pages/student/Dashboard";
+import AvailableQuizzes from "../pages/student/AvailableQuizzes";
+import QuizPage from "../pages/student/QuizPage";
+import AttemptQuiz from "../pages/student/AttemptQuiz";
+import Results from "../pages/student/Results";
+import Result from "../pages/student/Result";
 
 function AppRoutes() {
   return (
@@ -137,7 +139,7 @@ function AppRoutes() {
       </Route>
 
       {/* ================= STUDENT ================= */}
-      {/* 
+      
             <Route
                 element={<ProtectedRoute allowedRoles={["STUDENT"]} />}
             >
@@ -153,11 +155,21 @@ function AppRoutes() {
                         path="/student/quizzes"
                         element={<AvailableQuizzes />}
                     />
-
-                    <Route
+                     <Route
                         path="/student/quizzes/:quizId"
                         element={<QuizPage />}
                     />
+                    <Route
+  path="/student/attempts/:attemptId"
+  element={<AttemptQuiz />}
+/>
+
+                    <Route
+    path="/student/results"
+    element={<Results />}
+/>
+
+
 
                     <Route
                         path="/student/results/:attemptId"
@@ -166,7 +178,7 @@ function AppRoutes() {
 
                 </Route>
 
-            </Route> */}
+            </Route> 
 
       {/* ================= 404 ================= */}
 
