@@ -25,14 +25,11 @@ import QuestionList from "../pages/teacher/QuestionList";
 import CreateQuestion from "../pages/teacher/CreateQuestion";
 import EditQuestion from "../pages/teacher/EditQuestion";
 
-
-
 import OptionList from "../pages/teacher/OptionList";
 import CreateOption from "../pages/teacher/CreateOption";
 import EditOption from "../pages/teacher/EditOption";
-
-
-// import Evaluation from "../pages/teacher/Evaluation";
+import TeacherEvaluationList from "../pages/teacher/TeacherEvaluationList";
+import EvaluateAttempt from "../pages/teacher/EvaluateAttempt";
 
 import StudentDashboard from "../pages/student/Dashboard";
 import AvailableQuizzes from "../pages/student/AvailableQuizzes";
@@ -88,10 +85,7 @@ function AppRoutes() {
 
       <Route element={<ProtectedRoute allowedRoles={["TEACHER"]} />}>
         <Route element={<TeacherLayout />}>
-          <Route
-                        path="/teacher/dashboard"
-                        element={<TeacherDashboard />}
-                    />
+          <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
 
           <Route path="/teacher/quizzes" element={<QuizList />} />
 
@@ -127,58 +121,36 @@ function AppRoutes() {
             path="/teacher/quizzes/:quizId/questions/:questionId/options/:optionId/edit"
             element={<EditOption />}
           />
+          <Route
+            path="/teacher/evaluations"
+            element={<TeacherEvaluationList />}
+          />
 
-          {/*
-                    <Route
-                        path="/teacher/evaluation"
-                        element={<Evaluation />}
-                    />
-
-                </Route>*/}
+          <Route
+            path="/teacher/evaluations/:attemptId"
+            element={<EvaluateAttempt />}
+          />
         </Route>
       </Route>
 
       {/* ================= STUDENT ================= */}
-      
-            <Route
-                element={<ProtectedRoute allowedRoles={["STUDENT"]} />}
-            >
 
-                <Route element={<StudentLayout />}>
+      <Route element={<ProtectedRoute allowedRoles={["STUDENT"]} />}>
+        <Route element={<StudentLayout />}>
+          <Route path="/student/dashboard" element={<StudentDashboard />} />
 
-                    <Route
-                        path="/student/dashboard"
-                        element={<StudentDashboard />}
-                    />
+          <Route path="/student/quizzes" element={<AvailableQuizzes />} />
+          <Route path="/student/quizzes/:quizId" element={<QuizPage />} />
+          <Route
+            path="/student/attempts/:attemptId"
+            element={<AttemptQuiz />}
+          />
 
-                    <Route
-                        path="/student/quizzes"
-                        element={<AvailableQuizzes />}
-                    />
-                     <Route
-                        path="/student/quizzes/:quizId"
-                        element={<QuizPage />}
-                    />
-                    <Route
-  path="/student/attempts/:attemptId"
-  element={<AttemptQuiz />}
-/>
+          <Route path="/student/results" element={<Results />} />
 
-                    <Route
-    path="/student/results"
-    element={<Results />}
-/>
-
-
-
-                    <Route
-                        path="/student/results/:attemptId"
-                        element={<Result />}
-                    />
-
-                </Route>
-
-            </Route> 
+          <Route path="/student/results/:attemptId" element={<Result />} />
+        </Route>
+      </Route>
 
       {/* ================= 404 ================= */}
 

@@ -16,7 +16,7 @@ function QuizPage() {
     useCheckExistingAttempt(quizId);
   const { mutateAsync: resumeQuiz, isPending: isResuming } = useResumeAttempt();
   const { mutateAsync: startQuiz, isPending } = useStartQuiz();
-
+  console.log(quiz);
   const handleStart = async () => {
     try {
       const attempt = await startQuiz(quiz.id);
@@ -35,24 +35,24 @@ function QuizPage() {
   };
 
   // QuizPage.jsx - handleResume
-const handleResume = async () => {
-  try {
-    const resumedAttempt = await resumeQuiz(existingAttempt.attemptId);
-    
-    navigate(`/student/attempts/${resumedAttempt.attemptId}`, {
-      state: {
-        quiz: resumedAttempt.quiz || quiz,
-        attempt: {
-          attemptId: resumedAttempt.attemptId,
+  const handleResume = async () => {
+    try {
+      const resumedAttempt = await resumeQuiz(existingAttempt.attemptId);
+
+      navigate(`/student/attempts/${resumedAttempt.attemptId}`, {
+        state: {
+          quiz: resumedAttempt.quiz || quiz,
+          attempt: {
+            attemptId: resumedAttempt.attemptId,
+          },
+          remainingSeconds: resumedAttempt.remainingSeconds, // ✅ Server returns actual remaining time
         },
-        remainingSeconds: resumedAttempt.remainingSeconds, // ✅ Server returns actual remaining time
-      },
-    });
-  } catch (error) {
-    console.error("Failed to resume quiz:", error);
-    alert("Failed to resume quiz. Please try again.");
-  }
-};
+      });
+    } catch (error) {
+      console.error("Failed to resume quiz:", error);
+      alert("Failed to resume quiz. Please try again.");
+    }
+  };
 
   if (isLoading || checkingAttempt) {
     return (
@@ -82,7 +82,8 @@ const handleResume = async () => {
   }
 
   const hasExistingAttempt = existingAttempt?.exists;
-  const canAttempt = quiz.status === "PUBLISHED" || quiz.status === "ACTIVE";
+  // const canAttempt = quiz.status === "PUBLISHED" || quiz.status === "ACTIVE";
+  const canAttempt = true;
   const isUpcoming = quiz.startTime && new Date(quiz.startTime) > new Date();
   const isExpired = quiz.endTime && new Date(quiz.endTime) < new Date();
 
@@ -200,11 +201,11 @@ const handleResume = async () => {
         {!canAttempt ? (
           <div className="text-gray-500">
             <p className="text-lg">
-              {isUpcoming 
-                ? "This quiz hasn't started yet." 
-                : isExpired 
-                ? "This quiz has expired." 
-                : "This quiz is not available."}
+              {isUpcoming
+                ? "This quiz hasn't started yet."
+                : isExpired
+                  ? "This quiz has expired."
+                  : "This quiz is not available."}
             </p>
           </div>
         ) : hasExistingAttempt ? (

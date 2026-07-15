@@ -30,16 +30,15 @@ function TeacherLayout() {
           >
             Quizzes
           </NavLink>
-
           <NavLink
-            to="/teacher/evaluation"
+            to="/teacher/evaluations"
             className={({ isActive }) =>
               `block rounded-lg px-4 py-3 ${
                 isActive ? "bg-blue-900" : "hover:bg-blue-600"
               }`
             }
           >
-            Evaluation
+            Evaluations
           </NavLink>
         </nav>
       </aside>

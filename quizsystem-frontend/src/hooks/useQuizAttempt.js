@@ -64,3 +64,13 @@ export function useResumeAttempt() {
     mutationFn: resumeAttempt,
   });
 }
+
+export function useGetAttempt(attemptId) {
+  return useQuery({
+    queryKey: ["attempt", attemptId],
+    queryFn: () => resumeAttempt(attemptId),
+    enabled: !!attemptId,
+    retry: 1,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+  });
+}
