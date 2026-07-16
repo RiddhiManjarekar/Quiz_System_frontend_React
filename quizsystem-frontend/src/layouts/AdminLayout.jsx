@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import useAuthStore from "../store/authStore";
 
 function AdminLayout() {
@@ -17,17 +17,61 @@ function AdminLayout() {
                     Admin Panel
                 </h2>
 
-                <nav className="space-y-4">
+                <nav className="space-y-2">
 
-                    <p>Dashboard</p>
+  <NavLink
+    to="/admin/dashboard"
+    className={({ isActive }) =>
+      `block rounded-lg px-4 py-2 transition ${
+        isActive
+          ? "bg-blue-600 text-white"
+          : "hover:bg-gray-800"
+      }`
+    }
+  >
+    📊 Dashboard
+  </NavLink>
 
-                    <p>Students</p>
+  <NavLink
+    to="/admin/students"
+    className={({ isActive }) =>
+      `block rounded-lg px-4 py-2 transition ${
+        isActive
+          ? "bg-blue-600 text-white"
+          : "hover:bg-gray-800"
+      }`
+    }
+  >
+    🎓 Students
+  </NavLink>
 
-                    <p>Teachers</p>
+  <NavLink
+    to="/admin/teachers"
+    className={({ isActive }) =>
+      `block rounded-lg px-4 py-2 transition ${
+        isActive
+          ? "bg-blue-600 text-white"
+          : "hover:bg-gray-800"
+      }`
+    }
+  >
+    👨‍🏫 Teachers
+  </NavLink>
 
-                    <p>Quizzes</p>
+  <NavLink
+    to="/admin/quizzes"
+    className={({ isActive }) =>
+      `block rounded-lg px-4 py-2 transition ${
+        isActive
+          ? "bg-blue-600 text-white"
+          : "hover:bg-gray-800"
+      }`
+    }
+  >
+    📝 Quizzes
+  </NavLink>
 
-                </nav>
+</nav>
 
             </aside>
 

@@ -11,10 +11,10 @@ import AdminLayout from "../layouts/AdminLayout";
 import TeacherLayout from "../layouts/TeacherLayout";
 import StudentLayout from "../layouts/StudentLayout";
 
-// import Dashboard from "../pages/admin/Dashboard";
-// import Students from "../pages/admin/Students";
-// import Teachers from "../pages/admin/Teachers";
-// import Quizzes from "../pages/admin/Quizzes";
+import Dashboard from "../pages/admin/Dashboard";
+import Students from "../pages/admin/Students";
+import Teachers from "../pages/admin/Teachers";
+import Quizzes from "../pages/admin/Quizzes";
 
 import TeacherDashboard from "../pages/teacher/Dashboard";
 import QuizList from "../pages/teacher/QuizList";
@@ -52,7 +52,7 @@ function AppRoutes() {
       </Route>
 
       {/* ================= ADMIN ================= */}
-      {/* 
+      
             <Route
                 element={<ProtectedRoute allowedRoles={["ADMIN"]} />}
             >
@@ -79,7 +79,7 @@ function AppRoutes() {
                     />
 
                 </Route>
-            </Route> */}
+            </Route>
 
       {/* ================= TEACHER ================= */}
 

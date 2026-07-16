@@ -16,7 +16,7 @@ function QuizPage() {
     useCheckExistingAttempt(quizId);
   const { mutateAsync: resumeQuiz, isPending: isResuming } = useResumeAttempt();
   const { mutateAsync: startQuiz, isPending } = useStartQuiz();
-  console.log(quiz);
+ 
   const handleStart = async () => {
     try {
       const attempt = await startQuiz(quiz.id);
