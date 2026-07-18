@@ -25,16 +25,20 @@ const useAuthStore = create((set) => ({
     },
 
     logout: () => {
-        localStorage.clear();
+    localStorage.removeItem("userId");
+    localStorage.removeItem("name");
+    localStorage.removeItem("email");
+    localStorage.removeItem("role");
+    localStorage.removeItem("token");
 
-        set({
-            userId: null,
-            name: null,
-            email: null,
-            role: null,
-            token: null,
-        });
-    },
+    set({
+        userId: null,
+        name: null,
+        email: null,
+        role: null,
+        token: null,
+    });
+},
 }));
 
 export default useAuthStore;

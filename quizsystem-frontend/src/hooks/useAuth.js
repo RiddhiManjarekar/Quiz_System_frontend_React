@@ -37,17 +37,23 @@ function useAuth() {
 
       switch (user.role) {
         case "ADMIN":
-          navigate("/admin/dashboard");
+          navigate("/admin/dashboard",{
+            replace: true,
+          });
 
           break;
 
         case "TEACHER":
-          navigate("/teacher/dashboard");
+          navigate("/teacher/dashboard", {
+            replace: true,
+          });
 
           break;
 
         case "STUDENT":
-          navigate("/student/dashboard");
+          navigate("/student/dashboard",{
+            replace: true,
+          });
 
           break;
 

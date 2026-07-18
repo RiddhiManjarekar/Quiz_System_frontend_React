@@ -52,8 +52,8 @@ export function useEvaluateAnswer() {
       });
 
       queryClient.invalidateQueries({
-    queryKey: ["pending-evaluations"],
-});
+        queryKey: ["pending-evaluations"],
+      });
       queryClient.invalidateQueries({
         queryKey: ["evaluation-attempt", attemptId],
       });
